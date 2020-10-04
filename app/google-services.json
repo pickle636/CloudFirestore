@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "971796762567",
+    "firebase_url": "https://cloud-firestore-project-a8a4d.firebaseio.com",
+    "project_id": "cloud-firestore-project-a8a4d",
+    "storage_bucket": "cloud-firestore-project-a8a4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971796762567:android:98fc320f9995c1ae6b13e2",
+        "android_client_info": {
+          "package_name": "com.quizsquiz.cloudfirestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971796762567-opptmmi65203bu7kk4qgj3r8vlt26ha3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2v5mOeP6uKrzgIcytcUqjaiBL5OZcpe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "971796762567-opptmmi65203bu7kk4qgj3r8vlt26ha3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
