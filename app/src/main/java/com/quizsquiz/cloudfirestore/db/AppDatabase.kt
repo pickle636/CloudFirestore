@@ -13,7 +13,7 @@ class AppDatabase @Inject constructor() {
 
     private val db = Firebase.firestore
 
-    fun addNewUser(user: User): String {
+    suspend fun addNewUser(user: User): String {
         var result = ""
         db.collection("users")
             .add(user)
@@ -22,7 +22,7 @@ class AppDatabase @Inject constructor() {
             }
             .addOnFailureListener { e ->
                 result = "Error adding user: $e"
-            }
+            }.await()
         return result
     }
 
@@ -39,9 +39,23 @@ class AppDatabase @Inject constructor() {
                 Log.e("TAG", list.toString())
             }
             .addOnFailureListener { exception ->
-                Log.w("getUsers", "Error getting documents.", exception)
+                Log.w("getUsers", "Error getting user.", exception)
             }.await()
         return list
     }
 
+    suspend fun deleteUser(user: User) {
+        db.collection("users").document(user.id)
+            .delete()
+            .addOnSuccessListener { Log.d("Delete", "User successfully deleted!") }
+            .addOnFailureListener { e -> Log.w("Delete", "Error deleting user", e) }.await()
+    }
+
+    suspend fun updateUser(user: User) {
+        val washingtonRef = db.collection("users").document(user.id)
+        washingtonRef
+            .update("name", user.name, "age", user.age)
+            .addOnSuccessListener { Log.d("Update", "User successfully updated!") }
+            .addOnFailureListener { e -> Log.w("Update", "Error updating user", e) }.await()
+    }
 }

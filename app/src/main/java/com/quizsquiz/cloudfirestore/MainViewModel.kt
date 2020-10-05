@@ -19,4 +19,17 @@ class MainViewModel @ViewModelInject constructor(private val db: AppDatabase, ap
             users.postValue(db.getUsers())
         }
     }
+
+    fun deleteUser(){
+        viewModelScope.launch {
+            db.deleteUser(User("9dNfwIyt0N8ddc4OkEpE"))
+        }
+    }
+    fun updateUser() {
+        viewModelScope.launch {
+            db.updateUser(User("UE3NhvPhEzy6gtaApsd7", "John", 65))
+        }
+
+
+    }
 }
