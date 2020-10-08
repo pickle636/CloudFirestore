@@ -20,9 +20,9 @@ class MainViewModel @ViewModelInject constructor(private val db: AppDatabase, ap
         }
     }
 
-    fun deleteUser(){
+    fun deleteUser(user: User){
         viewModelScope.launch {
-            db.deleteUser(User("9dNfwIyt0N8ddc4OkEpE"))
+            db.deleteUser(User(user.id))
         }
     }
     fun updateUser() {
